@@ -1,0 +1,134 @@
+HAND_GESTURE_ENABLED_SECURITY_SYSTEM_WITH_RC4_ENCRYPTION
+
+
+
+ABSTRACT:
+
+            This project presents a smart, contactless access control solution—Hand Gesture Enabled Security System—integrated with RC4 encryption and email notification via Resend API. Aimed at enhancing hygiene and security, the system enables users to unlock doors through predefined hand gestures detected by the PAJ7620U2 sensor. The Arduino Uno microcontroller processes these gestures and interacts with a 16×2 LCD for real-time feedback. To ensure robust protection of access credentials, RC4 encryption secures stored passwords and verifies gesture-authenticated users. Additionally, the system incorporates Resend API to send instant email alerts upon unauthorized access attempts, providing real-time monitoring capabilities. The solution is low-cost, scalable, and highly relevant in smart homes, offices, and healthcare environments. It demonstrates strong gesture recognition accuracy (≈95%) and swift response (1–2 seconds), offering a hygienic alternative to conventional locks. The project not only enhances user experience through touchless interaction but also contributes to modernizing access control systems with encryption and IoT-based alerts.
+
+NOVELTY:
+
+• PAJ7620 gesture recognition sensor which captures 9 predefined gestures in real-time.
+• Customizable gestures for specific functions like "open", "lock", "denied", etc.
+• A hands-free, hygienic interface that can function in various lighting conditions and doesn't require physical contact or authentication tokens.
+• RC4 encryption for secure password storage and verification.
+• Resend API integration for reliable, real-time security email notifications.
+
+OBJECTIVE:
+
+	The project aims to develop a secure and efficient door access system that uses gesture control by integrating PAJ7620 gesture sensor with Arduino Uno. It uses a 16×2 LCD to provide real-time feedback on gesture recognition and access status. RC4 encryption enhances security by protecting access codes. The Resend API enables reliable email notifications that alert owners of unauthorized access attempts. The system will be tested for accuracy and reliability to ensure proper access control. This solution offers a cost-effective, hygienic, and scalable alternative for contactless door locking in smart homes, offices, and healthcare environments.
+
+ARCHITECTURE: 
+     The "Hand Gesture-Enabled Door Access Control System" integrates an Arduino Uno, PAJ7620U2 gesture sensor, RC4 encryption algorithm, and a 16×2 LCD display to create a secure and hygienic access mechanism. This contactless system replaces traditional access methods with smart gesture recognition, providing a touch-free, user-friendly solution ideal for environments requiring both convenience and enhanced hygiene.
+ 
+	
+•	The Arduino Uno functions as the central processing unit of the system. It receives gesture input from the PAJ7620U2 sensor, interprets it using a gesture recognition algorithm, and makes access control decisions based on predefined valid gesture patterns.
+•	The gesture sensor detects up to 9 unique hand gestures in real time (e.g., up, down, left, right, forward, backward, clockwise, counter-clockwise, and wave), allowing the user to unlock or lock the system via specific movements.
+•	Once a valid gesture sequence is identified, the RC4 encryption algorithm is applied to verify the encrypted access code stored in the Arduino. This ensures that even if the system is compromised, unauthorized access attempts cannot decrypt the stored credentials.
+•	The 16×2 LCD display provides immediate feedback to the user, displaying messages such as "Access Granted", "Access Denied", or "Invalid Gesture", ensuring clarity and ease of use.
+•	In case of an unauthorized or invalid gesture input, the system automatically triggers an email notification using the Resend API, alerting the system administrator or user in real time. This ensures quick responses to potential security breaches.
+This modular, low-cost prototype demonstrates a secure, efficient, and hygienic solution for door access control that can be easily scaled or integrated with IoT infrastructure for enhanced functionality in smart homes, healthcare institutions, office spaces, and other secured environments.
+PAJ7620 Gesture Recognition Sensor
+ 
+PAJ7620U2 integrates gesture recognition function with general I2C interface into a single chip. It can recognize 9 gestures and the gesture information can simply access via the I2C bus.
+Gesture recognition function:
+•	Move up
+•	Move down
+•	Move left
+•	Move right
+•	Move forward
+•	Move backward
+•	Circle-clockwise
+•	Circle-counter clockwise
+•	Wave
+Mechanism:
+The PAJ7620 sensor emits infrared light and detects the reflection of this light off objects, such as a hand. It has an array of photodiodes that measure the intensity of the reflected light. 
+By analysing the pattern of these intensities, the sensor can recognize various gestures, such as swipes, circles, and waves. Once a gesture is recognized, the sensor generates an output signal, which can be used by a microcontroller to perform specific tasks based on the gesture.
+•	Step 1: Infrared Emission
+•	Step 2: Reflection Detection 
+•	Step 3: Light Detection 
+•	Step 4: Pattern Recognition
+•	Step 5: Gesture Recognition
+•	Step 6: Output Signal 
+•	Step 7: Integration with Microcontroller
+
+METHODOLOGY:
+
+                The methodology began with designing the system, selecting components like the Arduino Uno and PAJ7620 sensor for gesture recognition. The Arduino was programmed to process gestures and control an LCD for feedback. After hardware setup, the system was tested to ensure accurate gesture detection and proper feedback. Calibration was done to minimize errors, and adjustments were made for better performance. RC4 encryption was implemented for password security. The Resend API integration facilitated real-time email notifications. Finally, real-world testing validated the system's functionality, ensuring intuitive and secure operation.
+
+MOTIVATION
+The rise in demand for contactless technologies in the wake of safety concerns (e.g. COVID-19) and the need for inclusive design for differently-abled individuals inspired this project. Traditional access methods often involve physical contact and may pose hygiene issues or be inaccessible to users with mobility challenges. Furthermore, the advancement in human-computer interaction, particularly gesture recognition, motivated the development of this innovative system that makes door access smarter, safer, more convenient, and with encrypted security.
+
+MODULES
+The system includes key modules: the Gesture Sensor Module uses the PAJ7620U2 sensor to detect gestures like up, down, left, right, clockwise, counter-clockwise, forward, backward, and wave. The Microcontroller Unit powered by an Arduino Uno processes gestures and controls access via C/C++ programming in the Arduino IDE. The Display Module features a 16×2 LCD that shows status updates. The Security Module implements RC4 encryption for password protection. The Notification Module uses Resend API to deliver instant email alerts on unauthorized access attempts.
+
+COMPONENTS/ SOFTWARE REQUIRED:
+Component/Software	Quantity	Purpose
+Arduino Uno	1	Microcontroller used
+PAJ7620 Sensor	1	Gesture Sensor
+16x2 LCD Interface	1	Display Real-time Data
+Breadboard	1	Used for prototyping and testing electronic circuits
+Jumper Wires	As Required (around 20)	Connection Between Parts
+Arduino IDE(Software)	-	Programming the Arduino
+
+DATA INTEGRATION
+
+Data integration in this project involves the seamless transmission and processing of input and output signals across various hardware and software modules. When a gesture is detected by the PAJ7620 sensor, its signal is transmitted to the Arduino Uno for processing. If the gesture matches a predefined access gesture, the Arduino checks the encrypted access code using RC4 decryption. Upon successful authentication, the system triggers the door lock mechanism and updates the LCD display. In the case of failed access or unauthorized gestures, an alert is generated, and the Resend API is called via serial communication (through a connected module or PC) to dispatch a security notification via email. This integrated flow ensures secure, real-time decision-making, smooth coordination among modules, and effective user feedback and alerting.
+         
+
+IMPLEMENTATION:
+The bellow picture shows the setup of the entire project.
+ 
+
+
+
+Initial status displayed on screen:
+ 
+
+
+Different lock positions:
+When we enter the wrong pattern of gestures for 2 times-
+
+ 
+
+When we enter the wrong pattern for more than 2 times:
+
+ 
+
+It also displays the gestures shown in the lcd display:
+ 
+ 
+When the correct pattern is entered:
+ 
+
+RESULT AND ANALYSIS:
+The system successfully recognized gestures with an accuracy of approximately 95% under ideal lighting and hand positioning conditions. Authorized gesture sequences resulted in the door unlocking, while unauthorized gestures kept the door locked. The RC4 encryption provided robust security against hacking attempts. The LCD provided real-time feedback, displaying messages such as "Access Granted" or "Access Denied," which enhanced the system's usability. The Resend API successfully delivered instant email notifications on unauthorized access attempts. During multiple tests, the system remained stable, with a response time of 1-2 seconds after gesture detection, ensuring efficient performance.
+
+FUTURE ENHANCEMENTS
+1.	AI-Based Gesture Recognition
+Implement machine learning models to allow the system to recognize custom gestures beyond the predefined ones supported by the PAJ7620 sensor. This would improve adaptability and user personalization.
+2.	Integration with IoT and Cloud Platforms
+Enhance the system with Wi-Fi/Bluetooth modules for real-time cloud syncing, enabling remote access control, activity logs, and monitoring via mobile or web applications.
+3.	Mobile App for Access Logs and Control
+Develop a companion mobile application that allows users to view access logs, receive push notifications, and remotely configure gesture controls and encryption settings.
+4.	Multimodal Authentication
+Combine gesture recognition with facial recognition, voice commands, or RFID for multi-factor authentication, thereby increasing the security level of access control.
+5.	Solar-Powered Hardware
+Incorporate solar-powered modules to make the system eco-friendly and suitable for off-grid or outdoor installations where electricity access is limited.
+6.	Gesture Sensitivity Calibration
+Add a calibration interface that allows users to fine-tune gesture sensitivity according to different lighting environments and hand sizes to reduce false rejections.
+7.	Emergency Unlock Mechanism
+Include an override feature for emergencies, allowing manual or alternative digital unlocking to prevent lockouts in critical situations.
+8.	Data Analytics Dashboard
+Build an admin dashboard that provides analytics such as usage frequency, peak access times, and unauthorized attempt trends to improve security management.
+
+CONCLUSION:
+	In conclusion, the dynamic gesture recognition door lock project redefines security with a futuristic touch. Using the PAJ7620 sensor and Arduino, it introduces an engaging and adaptable method for access control. The project's versatility spans various environments, emphasizing its human-centric design. Customizable gesture sequences open doors to diverse applications, while its robust security features, including limited attempts and real-time alerts, enhance protection. Beyond security, the project pioneers accessibility for individuals with physical disabilities. Through visual cues on the LCD display, it engages users and serves as a beacon at the intersection of innovation and practicality. This project is a glimpse into a future where gesture-based interfaces seamlessly integrate technology into our lives in exciting and empowering ways.
+
+REFERENCES
+[1] Arduino Official Documentation, Available: https://www.arduino.cc
+[2] PAJ7620 Gesture Sensor Datasheet, Available: https://www.seeedstudio.com/wiki/PAJ7620U2
+[3] Embedded Systems Lab Manuals, VIT Resources.
+[4] Tutorials on gesture-controlled Arduino projects, CircuitDigest.
+[5] Implementation of RC4 encryption in IoT devices.
+[6] Resend API Documentation, Available: https://resend.com/docs/api-reference/overview

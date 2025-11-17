@@ -1,0 +1,12 @@
+# Compiled Arduino files
+*.hex
+*.bin
+*.elf
+*.map
+
+# OS files (Windows/macOS)
+.DS_Store
+Thumbs.db
+
+# VS Code Workspace/Temporary Files
+.vscode/
